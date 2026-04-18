@@ -345,9 +345,9 @@ outputs/checkpoints/student_best.pth   ← Stage 2 best (WT=0.8841, epoch 19)
 
 | Member | Role | Module |
 |---|---|---|
-| Anurag Sharma Josyula | MACA-3D + Encoder | `models/maca.py`, `models/encoder.py` |
+| Ashmitha Paruchuri Balaji | MACA-3D + Encoder | `models/maca.py`, `models/encoder.py` |
 | Arpana Singh | VAE Bottleneck | `models/vae.py` |
-| Ashmitha Paruchuri Balaji | GAN + Attention Decoder | `models/gan.py`, `models/decoder.py` |
+| Anurag Sharma Josyula | GAN + Attention Decoder | `models/gan.py`, `models/decoder.py` |
 | Yuktaa Sri Addanki | Dataset + Training + Eval | `dataset.py`, `train.py`, `evaluate.py` |
 
 **Course:** DATA 255 — Deep Learning & Computer Vision  
