@@ -17,6 +17,7 @@ Docker path mapping:
 
 import os
 import random
+import json
 from typing import List, Tuple
 
 import numpy as np
@@ -140,6 +141,16 @@ def get_splits(data_root: str = None, seed: int = SEED):
     return all_p[:219], all_p[219:269], all_p[269:]
 
 
+def load_splits_from_file(split_file: str) -> Tuple[List[str], List[str], List[str]]:
+    """Load fixed patient splits from JSON file with train/val/test keys."""
+    with open(split_file, "r", encoding="utf-8") as f:
+        payload = json.load(f)
+    missing = [k for k in ("train", "val", "test") if k not in payload]
+    if missing:
+        raise ValueError(f"Split file missing keys: {missing}")
+    return payload["train"], payload["val"], payload["test"]
+
+
 # ------------------------------------------------------------------
 # PyTorch Dataset
 # ------------------------------------------------------------------
@@ -197,7 +208,7 @@ class BraTS2020Dataset(Dataset):
 
 def get_dataloaders(data_root=None, batch_size=None, num_workers=None,
                     crop_size=None, crops_per_patient=None,
-                    seed=None, missing_prob=None):
+                    seed=None, missing_prob=None, split_file=None):
     """
     Create train/val/test DataLoaders.
 
@@ -220,7 +231,10 @@ def get_dataloaders(data_root=None, batch_size=None, num_workers=None,
         te_ids  = va_ids
         cpp_tr  = 2
     else:
-        tr_ids, va_ids, te_ids = get_splits(root, sd)
+        if split_file:
+            tr_ids, va_ids, te_ids = load_splits_from_file(split_file)
+        else:
+            tr_ids, va_ids, te_ids = get_splits(root, sd)
         cpp_tr  = cpp
 
     ds_tr = BraTS2020Dataset(tr_ids, root, cs, cpp_tr, 'train', mp)

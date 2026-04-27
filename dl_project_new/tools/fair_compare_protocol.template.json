@@ -1,0 +1,8 @@
+{
+  "split_file": "C:/Users/arpana/Downloads/BrainSegNet/outputs/fair_splits_brats2020.json",
+  "baseline1_ckpt": "C:/Users/arpana/Downloads/BrainSegNet/outputs/baselines/unet_baseline/checkpoints/baseline1_best.pth",
+  "baseline2_ckpt": "C:/Users/arpana/Downloads/BrainSegNet/outputs/baselines/unet_baseline/checkpoints/baseline2_best.pth",
+  "brainsegnet_ckpt": "C:/Users/arpana/Downloads/BrainSegNet/outputs/student_best.pth",
+  "m3ae_ckpt": "C:/path/to/m3ae_checkpoint.pth",
+  "m3ae_adapter": "C:/Users/arpana/Downloads/BrainSegNet/dl_project_new/tools/m3ae_official_adapter.py"
+}

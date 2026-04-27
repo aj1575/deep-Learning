@@ -11,6 +11,7 @@ __pycache__/
 # Large zip files
 *.zip
 outputs/checkpoints/
+dl_project_new/.venv311/
 
 # Data folder (too large for GitHub)
 data/
