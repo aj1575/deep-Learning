@@ -1,0 +1,12 @@
+Before vs After PED2024 Fine-tuning (MEAN over 15 modality settings)
+Metrics format: WT/TC/ET
+
+Model        | Before@2020 | Before@2024 | After@2020 | After@2024 | Gain on 2024 (After-Before)
+------------------------------------------------------------------------------------------------------------------------
+Baseline1    | 0.567/0.397/0.391 | 0.210/0.169/0.229 | 0.566/0.393/0.389 | 0.207/0.163/0.233 | -0.002/-0.006/+0.004
+Baseline2    | 0.706/0.511/0.374 | 0.155/0.063/0.035 | 0.691/0.505/0.379 | 0.155/0.058/0.049 | -0.000/-0.006/+0.013
+BrainSegNet  | 0.822/0.714/0.603 | 0.208/0.072/0.017 | 0.388/0.326/0.150 | 0.741/0.408/0.393 | +0.533/+0.336/+0.376
+
+Notes:
+- Baselines were not fine-tuned; tiny differences across runs come from sampling/crop stochasticity.
+- BrainSegNet fine-tuning on PED2024 massively improves PED2024 score but reduces BraTS2020 score (catastrophic forgetting).

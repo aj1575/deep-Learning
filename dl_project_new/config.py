@@ -32,10 +32,10 @@ import os
 # ============================================================
 
 # Root of the BraTS 2020 training data (inside Docker container)
-DATA_ROOT = "/app/data/BraTS2020_TrainingData/MICCAI_BraTS2020_TrainingData"
+DATA_ROOT = "C:/Users/arpana/Downloads/BrainSegNet/data/BraTS_PED_2024/converted_brats_style"
 
 # Where checkpoints, logs, and results are saved (inside Docker container)
-OUTPUT_DIR = "/app/outputs"
+OUTPUT_DIR = "C:/Users/arpana/Downloads/BrainSegNet_backup_outputs/ped2024_finetune"
 
 # ============================================================
 # TRAINING HYPERPARAMETERS — safe defaults for the lab GPU
@@ -49,7 +49,7 @@ NUM_WORKERS       = 4       # MUST be 0 inside Docker on Windows
 BASE_FILTERS      = 32      # Encoder filter count at level 1
 LATENT_DIM        = 128     # VAE latent dimension
 TEACHER_EPOCHS    = 100     # Stage 1 epochs
-STUDENT_EPOCHS    = 150     # Stage 2 epochs
+STUDENT_EPOCHS    = 20      # Stage 2 epochs (backup fine-tune run)
 SEED              = 42
 # The GAN needs a much lower starting LR
 STUDENT_LR      = 5e-5    # was 2e-4 — 4x lower
